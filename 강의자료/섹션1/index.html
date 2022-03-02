@@ -1,0 +1,148 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        {
+
+            function solution(a, b, c) {
+                if (a > b) {
+                    if (b > c) {
+                        return c
+                    } else return b
+                }
+                else {
+                    if (a > c) {
+                        return c
+                    } else return a
+                }
+
+            }
+
+            console.log(solution(6, 11, 9));
+        }
+        {
+
+            function solution(a, b, c) {
+                //작은 것들의 합이 > 제일 큰것
+                let big, answer;
+                let sum = a + b + c;
+                if (a > b) big = a;
+                else big = b;
+                if (big > c) false;
+                else big = c;
+                if (sum - 2 * big > 0) answer = 'yes'
+                else answer = 'no'
+                return answer
+            }
+
+            console.log(solution(6, 1, 6));
+        }
+        {
+
+            function solution(n) {
+                if (n % 12 > 0) return parseInt(n / 12 + 1);
+                else return parseInt(n / 12);
+                //math.ceil() => 주어진 숫자보다 크거나 같은 숫자 중 가장 작은 숫자(정수)를 반환
+            }
+
+            console.log(solution(178));
+        }
+        {
+
+            function solution(n) {
+                let sum = 0;
+                for (let num = n; num >= 1; num--) {
+                    sum += num;
+                }
+                return sum;
+            }
+
+            console.log(solution(10));
+        }
+        {
+
+            function solution(arr) {
+                let answer = Number.MAX_SAFE_INTEGER;
+                //자바스크립트에서 사용할 수 최대 한도의 상수
+                arr.map(el => {
+                    if (answer < el) false;
+                    else answer = el;
+                })
+                return answer;
+            }
+            let arr = [1, 7, 6, 3, 12, 9, 11];
+            console.log(solution(arr));
+        }
+        {
+
+            function solution(arr) {
+                //1. 홀수 자연수 들의 합
+                let 홀수 = arr.filter(el => el % 2 === 1);
+                let sum = 0, min = Number.MAX_SAFE_INTEGER;
+                홀수.map(el => {
+                    sum += el;
+                    if (min > el) min = el;
+                })
+                //2. 그 수들 중 최솟값
+                return { sum, min }
+
+            }
+            arr = [12, 77, 38, 41, 53, 92, 85];
+            console.log(solution(arr));
+        }
+        {
+
+            function solution(day, arr) {
+                let count = 0;
+                arr.map(el => {
+                    if (el % 10 === day) count += 1;
+                })
+                return count;
+            }
+            arr = [25, 23, 11, 47, 53, 17, 33];
+            console.log(solution(3, arr));
+        }
+        {
+            //해설 확인 (오래 걸린 문제)
+            function solution(arr) {
+                const reducer = (accumulator, current) => accumulator + current;
+                const sum = arr.reduce(reducer)
+                let first, second, answer;
+                arr.map(el => {
+                    first = el;
+                    arr.map(e => {
+                        if (el !== e && sum - first - e === 100) {
+                            second = e;
+                            answer = arr.filter(elem => ((elem !== first) && (elem !== second)))
+                        }
+                    })
+
+                })
+                return answer;
+            }
+            let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
+            console.log(solution(arr));
+        }
+        {
+            function solution(str) {
+                let answer;
+                str.map(char => {
+                    if (char === char.toUpperCase()) {
+
+                    } else {
+                        ans
+                    }
+                })
+            }
+            let str = "BANANA";
+            console.log(solution(str));
+        }
+    </script>
+</body>
+
+</html>
