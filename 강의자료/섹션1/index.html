@@ -129,17 +129,109 @@
             console.log(solution(arr));
         }
         {
+            //문자열 순회 => for of문 사용
             function solution(str) {
-                let answer;
-                str.map(char => {
-                    if (char === char.toUpperCase()) {
-
-                    } else {
-                        ans
-                    }
-                })
+                let answer = '';
+                for (let el of str) {
+                    answer += el === 'A' ? '#' : el
+                }
+                return answer
             }
             let str = "BANANA";
+            console.log(solution(str));
+        }
+        {
+            function solution(s, t) {
+                let count = 0;
+                for (let char of s) {
+                    if (char === t) count++;
+                }
+                return count;
+            }
+            let str = "COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+        }
+        {
+            function solution(s) {
+                let count = 0;
+                for (let a of s) {
+                    if (a === a.toUpperCase()) count++;
+                }
+                return count;
+            }
+            let str = "KoreaTimeGood";
+            console.log(solution(str));
+        }
+        {
+            function solution(s) {
+                let answer = '';
+                for (let i of s) {
+                    answer += i.toUpperCase()
+                }
+                return answer;
+            }
+            let str = "ItisTimeToStudy";
+            console.log(solution(str));
+        }
+        {
+            {
+                function solution(s) {
+                    let answer = '';
+                    for (let char of s) {
+                        if (char.toUpperCase() === char) answer += char.toLowerCase()
+                        else answer += char.toUpperCase();
+                    }
+                    return answer
+
+                }
+                console.log(solution("StuDY"));
+            }
+        }
+        {
+            function solution(s) {
+                return s.reduce((a, b) => {
+                    if (a.length > b.length) return a
+                    else return b
+                })
+            }
+            let str = ["teacher", "time", "student", "beautiful", "good"];
+            console.log(solution(str));
+        }
+        {
+            //string.substr(index , 갯수)
+            function solution(s) {
+                let answer = '';
+                let idx = 0;
+                if (s.length % 2 === 0) {
+                    idx = s.length / 2 - 1;
+                    answer = answer + s[idx] + s[idx + 1];
+                } else {
+                    idx = parseInt(s.length / 2);
+                    answer = answer + s[idx];
+                }
+                return answer;
+            }
+            console.log(solution("study"));
+        }
+        {
+            function solution(s) {
+                let answer = ''
+                for (let i = 0; i < s.length; i++) {
+                    //중복 된 값이 없으면]
+                    if (answer.indexOf(s[i]) === -1) answer += s[i]
+                }
+                return answer;
+            }
+            console.log(solution("ksekkset"));
+        }
+        {
+            function solution(s) {
+                let answer = s.filter((el, idx) =>
+                    (s.indexOf(el) === idx)
+                )
+                return answer;
+            }
+            let str = ["good", "time", "good", "time", "student"];
             console.log(solution(str));
         }
     </script>
