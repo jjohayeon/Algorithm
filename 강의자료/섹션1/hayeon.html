@@ -72,12 +72,42 @@
         {
             //8번 일곱 난쟁이
             function solution(arr) {
-
+                let answer = arr;
+                let sum = arr.reduce((a, b) => a + b, 0) //arr의 전체 합
+                for (let i = 0; i < 8; i++) {
+                    for (let j = i + 1; j < 9; j++) {
+                        // console.log(arr[i], arr[j])
+                        if ((sum - (arr[i] + arr[j])) === 100) {
+                            arr.splice(i, 1);
+                            arr.splice(j, 1)
+                        }
+                    }
+                }
                 return answer;
             }
 
             let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
             console.log(solution(arr));
+        }
+        {
+            //9번 A를#으로
+            function solution(str) {
+                let s = [...str];
+                for (let i = 0; i < s.length; i++) {
+                    if (s[i] == 'A') {
+                        s.splice(i, 1, '#')
+                    }
+                }
+                return s;
+            }
+
+            let str = "BANANA";
+            console.log(solution(str));
+
+        }
+        {
+            //10번 문자찾기
+
         }
     </script>
 </body>
