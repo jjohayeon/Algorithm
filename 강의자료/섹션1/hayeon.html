@@ -57,7 +57,27 @@
         }
         {
             //7번 10부제
+            function solution(day, arr) {
+                var zero = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90];
+                var select = arr.filter(data => zero.includes((data - day)))
 
+
+                return select
+            }
+
+
+            arr = [25, 23, 11, 47, 53, 17, 33];
+            console.log(solution(3, arr));
+        }
+        {
+            //8번 일곱 난쟁이
+            function solution(arr) {
+
+                return answer;
+            }
+
+            let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
+            console.log(solution(arr));
         }
     </script>
 </body>
