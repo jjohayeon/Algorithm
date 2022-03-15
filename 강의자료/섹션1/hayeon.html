@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            //4번 1~N까지 합 출력
+            function solution(n) {
+                return Array(n).fill().map((obj, index) => index + 1).reduce((acc, curr) => acc + curr)
+                //index는 0부터 시작하니까 +1을 해줬습니다요
+            }
+            console.log(solution(5));
+        }
+        {
+            //진석 4번문제
+            function solution(n) {
+                let sum = 0;
+                for (let num = n; num >= 1; num--) {
+                    sum += num;
+                }
+                return sum;
+            }
+
+            console.log(solution(10));
+        }
+        {
+            //5번 최솟값 구하기
+            function solution(arr) {
+                let a = Math.min(...arr)
+                return a
+            }
+            let arr = [5, 3, 7, 11, 2, 15, 17];
+            console.log(solution(arr));
+        }
+        {
+            //6번 홀수
+            function solution(arr) {
+                // let map1 = arr.map(a => a % 2)
+
+                //     return map1
+                let odd = arr.filter(data => data % 2 !== 0)//홀수
+                let add = odd.reduce((acc, curr) => acc + curr) //홀수값 다 더하기
+                let min = Math.min(...odd)
+
+                return { add, min }
+            }
+
+            arr = [12, 77, 38, 41, 53, 92, 85];
+            console.log(solution(arr));
+        }
+        {
+            //7번 10부제
+            function solution(day, arr) {
+                var zero = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90];
+                var select = arr.filter(data => zero.includes((data - day)))
+
+
+                return select
+            }
+
+
+            arr = [25, 23, 11, 47, 53, 17, 33];
+            console.log(solution(3, arr));
+        }
+        {
+            //8번 일곱 난쟁이
+            function solution(arr) {
+                let answer = arr;
+                let sum = arr.reduce((a, b) => a + b, 0) //arr의 전체 합
+                for (let i = 0; i < 8; i++) {
+                    for (let j = i + 1; j < 9; j++) {
+                        // console.log(arr[i], arr[j])
+                        if ((sum - (arr[i] + arr[j])) === 100) {
+                            arr.splice(i, 1);
+                            arr.splice(j, 1)
+                        }
+                    }
+                }
+                return answer;
+            }
+
+            let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
+            console.log(solution(arr));
+        }
+        {
+            //9번 A를#으로
+            function solution(str) {
+                let s = [...str];
+                for (let i = 0; i < s.length; i++) {
+                    if (s[i] == 'A') {
+                        s.splice(i, 1, '#')
+                    }
+                }
+                return s;
+            }
+
+            let str = "BANANA";
+            console.log(solution(str));
+
+        }
+        {
+            //10번 문자찾기
+            function solution(s, t) {
+                let a = s;
+                let a2 = [...s];
+                let count = 0;
+                for (let i = 0; i < a2.length; i++) {
+                    if (a2[i] == t) {
+                        count++;
+                    }
+                }
+                return count;
+            }
+
+            let str = "COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+        }
+        {
+            //11번 대문자찾기
+            function solution(s) {
+                let ans = s;
+                let answer = [...ans];
+                for (let i = 0; i < answer.length; i++) {
+                    //대문자인지 확인
+                }
+
+                return answer;
+            }
+
+            let str = "KoreaTimeGood";
+            console.log(solution(str));
+
+        }
+    </script>
+</body>
+
+</html>
