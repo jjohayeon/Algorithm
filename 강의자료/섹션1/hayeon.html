@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            //4번 1~N까지 합 출력
+            function solution(n) {
+                return Array(n).fill().map((obj, index) => index + 1).reduce((acc, curr) => acc + curr)
+                //index는 0부터 시작하니까 +1을 해줬습니다요
+            }
+            console.log(solution(5));
+        }
+        {
+            //진석 4번문제
+            function solution(n) {
+                let sum = 0;
+                for (let num = n; num >= 1; num--) {
+                    sum += num;
+                }
+                return sum;
+            }
+
+            console.log(solution(10));
+        }
+        {
+            //5번 최솟값 구하기
+            function solution(arr) {
+                let a = Math.min(...arr)
+                return a
+            }
+            let arr = [5, 3, 7, 11, 2, 15, 17];
+            console.log(solution(arr));
+        }
+        {
+            //6번 홀수
+            function solution(arr) {
+                // let map1 = arr.map(a => a % 2)
+
+                //     return map1
+                let odd = arr.filter(data => data % 2 !== 0)//홀수
+                let add = odd.reduce((acc, curr) => acc + curr) //홀수값 다 더하기
+                let min = Math.min(...odd)
+
+                return { add, min }
+            }
+
+            arr = [12, 77, 38, 41, 53, 92, 85];
+            console.log(solution(arr));
+        }
+        {
+
+        }
+    </script>
+</body>
+
+</html>
