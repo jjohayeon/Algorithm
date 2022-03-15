@@ -107,6 +107,22 @@
         }
         {
             //10번 문자찾기
+            function solution(s, t) {
+                let a = s;
+                let a2 = [...s];
+                let count = 0;
+                for (let i = 0; i < a2.length; i++) {
+                    if (a2[i] == t) {
+                        count++;
+                    }
+                }
+                return count;
+            }
+
+            let str = "COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+        }
+        {
 
         }
     </script>
