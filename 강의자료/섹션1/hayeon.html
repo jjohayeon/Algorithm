@@ -123,10 +123,10 @@
         }
         {
             //11번 대문자찾기
-            function solution(s) {
-                let ans = s;
+            function solution(str) {
+                let ans = str;
                 let answer = [...ans];
-                let upperans = s.toUpperCase()
+                let upperans = str.toUpperCase()
                 let upperanswer = [...upperans]
                 let count = 0;
                 for (let i = 0; i < answer.length; i++) {
@@ -172,21 +172,20 @@
 
             console.log(solution("StuDY"));
         }
-        // {
-        //     //14번 가장 긴 문자열
-        //     function solution(s) {
-        //         let answer = s;
-        //         let arr= [];
-        //         let max = Math.max(arr);
-        //         for (let i = 0; i <answer.length; i++) {
-        //             let answer2 = [...answer[i]].length;
-        //             arr.push(answer2);
-        //         }
-        //         return max;
-        //     }
-        //     let str = ["teacher", "time", "student", "beautiful", "good"];
-        //     console.log(solution(str));
-        // }
+        {
+            //14번 가장 긴 문자열
+            function solution(s) {
+                let arr= [] ,max;
+                for (let i = 0; i <s.length; i++) {
+                    let answer = s[i].length;
+                    arr.push(answer);
+                }
+                max= Math.max(...arr)
+                return max;
+            }
+            let str = ["teacher", "time", "student", "beautiful", "good"];
+            console.log(solution(str));
+        }
 
 
         // {
