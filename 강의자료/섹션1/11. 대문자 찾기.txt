@@ -14,7 +14,7 @@
                 }
 
                 return answer;
-            }
+            } 
 
             let str="KoreaTimeGood";
             console.log(solution(str));

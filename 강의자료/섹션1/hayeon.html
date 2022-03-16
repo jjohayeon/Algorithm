@@ -44,7 +44,6 @@
             function solution(arr) {
                 // let map1 = arr.map(a => a % 2)
 
-                //     return map1
                 let odd = arr.filter(data => data % 2 !== 0)//홀수
                 let add = odd.reduce((acc, curr) => acc + curr) //홀수값 다 더하기
                 let min = Math.min(...odd)
@@ -98,7 +97,7 @@
                         s.splice(i, 1, '#')
                     }
                 }
-                return s;
+                return s.join("");
             }
 
             let str = "BANANA";
@@ -127,17 +126,84 @@
             function solution(s) {
                 let ans = s;
                 let answer = [...ans];
+                let upperans = s.toUpperCase()
+                let upperanswer = [...upperans]
+                let count = 0;
                 for (let i = 0; i < answer.length; i++) {
-                    //대문자인지 확인
+                    if (answer[i] == upperanswer[i]) {
+                        count++;
+                    }
                 }
-
-                return answer;
+                return count;
             }
 
             let str = "KoreaTimeGood";
             console.log(solution(str));
-
         }
+        {
+            //12번 대문자로 통일
+            function solution(s) {
+                let answer = s.toUpperCase();
+                return answer;
+            }
+
+            let str = "ItisTimeToStudy";
+            console.log(solution(str));
+        }
+        {
+            //13번 대소문자 변환
+            function solution(s) {
+                let answer = s;
+                let s2 = [...s]
+                let upper = s.toUpperCase();
+                let lower = s.toLowerCase();
+                let upperS = [...upper];
+                let lowerS = [...lower];
+                let join = s2.join("")
+                for (let i = 0; i < upperS.length; i++) {
+                    if (s2[i] !== upperS[i]) {
+                        s2.splice(i, 1, upperS[i])
+                    } else if (s2[i] == upperS[i]) {
+                        s2.splice(i, 1, lowerS[i])
+                    }
+                }
+                return join;
+            }
+
+            console.log(solution("StuDY"));
+        }
+        // {
+        //     //14번 가장 긴 문자열
+        //     function solution(s) {
+        //         let answer = s;
+        //         let arr= [];
+        //         let max = Math.max(arr);
+        //         for (let i = 0; i <answer.length; i++) {
+        //             let answer2 = [...answer[i]].length;
+        //             arr.push(answer2);
+        //         }
+        //         return max;
+        //     }
+        //     let str = ["teacher", "time", "student", "beautiful", "good"];
+        //     console.log(solution(str));
+        // }
+
+
+        // {
+        //     //14번
+        //     function solution(s) {
+        //         let answer = s;
+        //         let arr = [];
+        //         for (let x of s) {
+        //             console.log(x)
+        //         }
+        //         return answer;
+        //         ;
+        //     }
+        //     let str = ["teacher", "time", "student", "beautiful", "good"];
+        //     console.log(solution(str))
+        // }
+
     </script>
 </body>
 
