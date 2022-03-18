@@ -11,12 +11,54 @@
 <body>
     <script>
         {
+            //1번 세 수 중 최솟값
+            function solution(a, b, c) {
+                let answer;
+                if (a > b) {
+                    answer = a;
+                } else { answer = b };
+                if (answer < c) {
+                    answer = c
+                }
+                return answer;
+            }
+            console.log(solution(2, 5, 1));
+        }
+        {
+            //2번 삼각형 판별
+            function solution(a, b, c) {
+                let answer;
+                let max;
+                let total = (a + b + c);
+                if (a > b) {
+                    max = a;
+                } else { max = b }
+                if (max < c) { max = c }
+                if (total - max < max) {
+                    answer = 'yes'
+                } else if (total - max >= max) {
+                    answer = 'no'
+                }
+                return answer;
+            }
+            console.log(solution(13, 33, 17));
+        }
+        {
+            //3번
+            function solution(n) {
+                let answer = Math.ceil(n / 12);
+                return answer;
+            }
+
+            console.log(solution(178));
+        }
+        {
             //4번 1~N까지 합 출력
             function solution(n) {
                 return Array(n).fill().map((obj, index) => index + 1).reduce((acc, curr) => acc + curr)
                 //index는 0부터 시작하니까 +1을 해줬습니다요
             }
-            console.log(solution(5));
+            console.log(solution(10));
         }
         {
             //진석 4번문제
@@ -172,23 +214,38 @@
 
             console.log(solution("StuDY"));
         }
-        // {
-        //     //14번 가장 긴 문자열
-        //     function solution(s) {
-        //         let answer = s;
-        //         let arr = [];
+        {
+            //14번 가장 긴 문자열
+            // function solution(s) {
+            //     let answer = s;
+            //     let arr = [];
 
-        //         for (let i = 0; i < answer.length; i++) {
-        //             let answer2 = [...answer[i]].length;
-        //             arr.push(answer2);
-        //         }
-        //         let max = Math.max(...arr);
+            //     for (let i = 0; i < answer.length; i++) {
+            //         let answer2 = [...answer[i]].length;
+            //         arr.push(answer2);
+            //     }
+            //     let max = Math.max(...arr);
 
-        //         return max;
-        //     }
-        //     let str = ["teacher", "time", "student", "beautiful", "good"];
-        //     console.log(solution(str));
-        // }
+            //     return max;
+            // }
+            // let str = ["teacher", "time", "student", "beautiful", "good"];
+            // console.log(solution(str));
+
+            // 14번
+            function solution(s) {
+                let answer;
+                let max = Number.MIN_SAFE_INTEGER;
+                for (let x of s) {
+                    if (x.length > max) {
+                        max = x.length;
+                        answer = x;
+                    }
+                }
+                return answer;
+            }
+            let str = ["teacher", "time", "student", "beautiful", "good"];
+            console.log(solution(str));
+        }
 
 
         // {
@@ -254,18 +311,24 @@
                 let answer = "";
                 // console.log(s.indexOf("k"));
                 for (let i = 0; i < s.length; i++) {
-                    console.log(s[i], i, s.indexOf(s[i]));
-                    // if (s.indexOf(s[i]) === i) answer += s[i];
+                    // console.log(s[i], i, s.indexOf(s[i]));
+                    if (s.indexOf(s[i]) === i) answer += s[i];
                 }
                 return answer;
             }
             console.log(solution("ksekkset"));
         }
         {
-            //17번 중복단어제거
+            //17번 중복단어제거 (forEach, includes)
             function solution(s) {
+                let ss = [...s];
+                let answer = [];
+                ss.forEach((el) => {
+                    if (!answer.includes(el)) {
+                        answer.push(el)
+                    }
+                })
                 return answer;
-
             }
             let str = ["good", "time", "good", "time", "student"];
             console.log(solution(str));
