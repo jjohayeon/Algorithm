@@ -137,6 +137,7 @@
             console.log(solution(arr));
         }
         {
+            //6.격자판 최대합
             function solution(arr){
                let n= arr.length, max = 0, sum, sum1=0, sum2 = 0;
                for(let i=0; i<n; i++){
@@ -176,6 +177,34 @@
                 [19, 13, 30, 13, 19]];
             console.log(solution(arr));
 
+        }
+        {
+
+            function solution(arr){
+                let dummy = new Array(arr.length), answer = 0 ,istop;
+                dummy.fill(0);
+                arr.push([...dummy]);
+                arr.unshift([...dummy]);
+                arr.map(el=> {el.push(0); el.unshift(0);})
+                for(let i =1; i<=arr.length - 1; i++){
+                    for(let j=1; j<arr.length - 1; j++){
+                        istop = arr[i][j] > arr[i-1][j] && arr[i][j] > arr[i][j-1] && arr[i][j] > arr[i+1][j] && arr[i][j] > arr[i][j+1];
+                        if(istop){
+
+                            answer +=1;
+                        }
+
+                    }
+                }
+                return answer;
+            }
+
+            let arr=[[5, 3, 7, 2, 3],
+                [3, 7, 1, 6, 1],
+                [7, 2, 5, 3, 4],
+                [4, 3, 6, 4, 1],
+                [8, 7, 3, 5, 2]];
+            console.log(solution(arr));
         }
     </script>
 </body>
