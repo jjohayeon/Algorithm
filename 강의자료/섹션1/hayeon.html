@@ -11,12 +11,54 @@
 <body>
     <script>
         {
+            //1번 세 수 중 최솟값
+            function solution(a, b, c) {
+                let answer;
+                if (a > b) {
+                    answer = a;
+                } else { answer = b };
+                if (answer < c) {
+                    answer = c
+                }
+                return answer;
+            }
+            console.log(solution(2, 5, 1));
+        }
+        {
+            //2번 삼각형 판별
+            function solution(a, b, c) {
+                let answer;
+                let max;
+                let total = (a + b + c);
+                if (a > b) {
+                    max = a;
+                } else { max = b }
+                if (max < c) { max = c }
+                if (total - max < max) {
+                    answer = 'yes'
+                } else if (total - max >= max) {
+                    answer = 'no'
+                }
+                return answer;
+            }
+            console.log(solution(13, 33, 17));
+        }
+        {
+            //3번
+            function solution(n) {
+                let answer = Math.ceil(n / 12);
+                return answer;
+            }
+
+            console.log(solution(178));
+        }
+        {
             //4번 1~N까지 합 출력
             function solution(n) {
                 return Array(n).fill().map((obj, index) => index + 1).reduce((acc, curr) => acc + curr)
                 //index는 0부터 시작하니까 +1을 해줬습니다요
             }
-            console.log(solution(5));
+            console.log(solution(10));
         }
         {
             //진석 4번문제
@@ -194,7 +236,7 @@
         //         let answer = s;
         //         let arr = [];
         //         for (let x of s) {
-        //             console.log(x)
+
         //         }
         //         return answer;
         //         ;
@@ -202,6 +244,77 @@
         //     let str = ["teacher", "time", "student", "beautiful", "good"];
         //     console.log(solution(str))
         // }
+        {
+            //15번 가운데 문자 출력
+            function solution(s) {
+                let answer = [...s];
+                let halfanswerIndex = Math.round(answer.length / 2);
+                let answer2 = [];
+
+                if (answer.length % 2 !== 0) {
+                    answer2.push(answer[halfanswerIndex - 1])
+                } else if (answer.length % 2 === 0) {
+                    answer2.push(answer[halfanswerIndex - 1], answer[halfanswerIndex])
+                }
+                return answer2;
+            }
+            console.log(solution("study"));
+        }
+        {
+            //16번 중복문자 제거 (set)
+            function solution(s) {
+                // for (let i = 0; i < (answer.length - 1); i++) {
+                //     for (let j = (i + 1); j < (answer.length); j++) {
+                //         if (answer[i] == answer[j]) {
+                //             answer.splice(i, 1);
+                //         }
+                //     }
+                // }
+                let answer = [...new Set(s)]; //짱이당,,,,,,,,,,개간단
+                return answer.join("");
+            }
+            console.log(solution("ksekkset"));
+        }
+        {
+            //16번 중복문자 제거 (filter)
+            function solution(s) {
+                let answer = [...s];
+                let answer2 = answer.filter((item, index) =>
+                    answer.indexOf(item) === index
+                    //indexOf : item의 같은 값 중 첫번째 값의 index
+                )
+                return answer2.join("");
+            }
+            console.log(solution("ksekkset"))
+        }
+        {
+            //16번 중복문자 제거 (for문 index, indexOf비교)
+            function solution(s) {
+                let answer = "";
+                // console.log(s.indexOf("k"));
+                for (let i = 0; i < s.length; i++) {
+                    // console.log(s[i], i, s.indexOf(s[i]));
+                    if (s.indexOf(s[i]) === i) answer += s[i];
+                }
+                return answer;
+            }
+            console.log(solution("ksekkset"));
+        }
+        {
+            //17번 중복단어제거 (forEach, includes)
+            function solution(s) {
+                let ss = [...s];
+                let answer = [];
+                ss.forEach((el) => {
+                    if (!answer.includes(el)) {
+                        answer.push(el)
+                    }
+                })
+                return answer;
+            }
+            let str = ["good", "time", "good", "time", "student"];
+            console.log(solution(str));
+        }
 
     </script>
 </body>

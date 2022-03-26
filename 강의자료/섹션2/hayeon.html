@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        {
+            //1번문제 큰 수 출력하기
+            function solution(arr) {
+                let answer = [];
+                answer.push(arr[0])
+                for (let i = 1; i < arr.length; i++) {
+                    if (arr[i] > arr[i - 1]) {
+                        answer.push(arr[i])
+                    }
+                }
+                return answer;
+            }
+            let arr = [7, 3, 9, 5, 6, 12];
+            console.log(solution(arr));
+        }
+        {
+            //2번문제 보이는 학생
+            function solution(arr) {
+                let count = 0;
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i] > arr[i - 1]) {
+                        // console.log(arr[i])
+                        count++;
+                    }
+                }
+                return count;
+            }
+            let arr = [130, 135, 148, 140, 145, 150, 150, 153]
+            console.log(solution(arr))
+        }
+        {
+            //3번 가위바위보
+            function solution(a, b) {
+                let answer = [];
+                for (let i = 0; i < a.length; i++) {
+                    if (a[i] == 1 && b[i] == 1) {
+                        answer.push('D');
+                    } else if (a[i] == 1)
+                }
+
+                return answer;
+            }
+
+            let a = [2, 3, 3, 1, 3];
+            let b = [1, 1, 2, 2, 3];
+            console.log(solution(a, b));
+
+        }
+    </script>
+
+</body>
+
+</html>
