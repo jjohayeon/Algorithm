@@ -43,11 +43,14 @@
         {
             //3번 가위바위보
             function solution(a, b) {
-                let answer = [];
+                let answer = "";
                 for (let i = 0; i < a.length; i++) {
-                    if (a[i] == 1 && b[i] == 1) {
-                        answer.push('D');
-                    } else if (a[i] == 1)
+                    if (a[i] === b[i]) {
+                        answer += 'D'
+                    } else if (a[i] === 1 && b[i] === 3) { answer += 'A' }
+                    else if (a[i] === 2 && b[i] === 1) { answer += 'A' }
+                    else if (a[i] === 3 && b[i] === 2) { answer += 'A' }
+                    else { answer += 'B' }
                 }
 
                 return answer;
@@ -57,6 +60,68 @@
             let b = [1, 1, 2, 2, 3];
             console.log(solution(a, b));
 
+        }
+        {
+            //4번 점수계산
+            function solution(arr) {
+                let answer = 0;
+                let count = 0;
+                for (let x of arr) {
+                    if (x === 1) {
+                        count++;
+                        answer += count;
+                    } else { count = 0 };
+                }
+
+                return answer;
+            }
+
+
+            let arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+            console.log(solution(arr));
+        }
+        {
+            //5번 등수구하기
+            function solution(arr) {
+                let answer = [1, 1, 1, 1, 1];
+                for (let i = 0; i < arr.length; i++) {
+                    for (let j = 0; j < arr.length; j++) {
+                        if (arr[j] > arr[i]) {
+                            answer[i]++
+                        }
+                    }
+                }
+                return answer;
+            }
+
+            let arr = [87, 89, 92, 100, 76];
+            console.log(solution(arr));
+        }
+        {
+            //6번 격자판 최대합
+            function solution(arr) {
+                let answer, max = 0;
+                for (let i = 0; i < arr.length; i++) {
+                    let newArr = arr[i].reduce((a, b) => {
+                        return a + b
+                    })
+                    //가로 max
+                    if (max < newArr) {
+                        max = newArr
+                    }
+                    arr.map((el) => {
+                        console.log(el[i])
+                    })
+                }
+                return max;
+            }
+
+            let arr = [[10, 13, 10, 12, 15],
+            [12, 39, 30, 23, 11],
+            [11, 25, 50, 53, 15],
+            [19, 27, 29, 37, 27],
+            [19, 13, 30, 13, 19]];
+            console.log(solution(arr));
         }
     </script>
 
