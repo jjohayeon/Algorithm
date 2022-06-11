@@ -13,109 +13,125 @@
         //1번문제 큰 수 출력하기
         function solution(arr) {
           let answer = [];
-          answer.push(arr[0]);
-          for (let i = 1; i < arr.length; i++) {
-            if (arr[i] > arr[i - 1]) {
-              answer.push(arr[i]);
+
+          result = arr.reduce((a, cur, index) => {
+            if (index === 1) {
+              answer.push(a);
             }
-          }
+            if (a < cur) {
+              answer.push(cur);
+            }
+            return cur;
+          });
           return answer;
         }
         let arr = [7, 3, 9, 5, 6, 12];
-        console.log(solution(arr));
+        console.log("1번문제", solution(arr));
       }
       {
         //2번문제 보이는 학생
         function solution(arr) {
-          let count = 0;
-          for (let i = 0; i < arr.length; i++) {
-            if (arr[i] > arr[i - 1]) {
-              // console.log(arr[i])
-              count++;
+          let answer = [];
+          arr.reduce((acc, cur, index) => {
+            if (index === 1) {
+              answer.push(acc);
             }
-          }
-          return count;
+            if (acc < cur) {
+              answer.push(cur);
+              return cur;
+            } else {
+              return acc;
+            }
+            console.log(acc);
+          });
+
+          return answer;
         }
         let arr = [130, 135, 148, 140, 145, 150, 150, 153];
-        console.log(solution(arr));
+        console.log("2번문제", solution(arr));
       }
+
       {
         //3번 가위바위보
-        // function solution(a, b) {
-        //     let answer = [];
-        //     for (let i = 0; i < a.length; i++) {
-        //         if (a[i] == 1 && b[i] == 1) {
-        //             answer.push('D');
-        //         } else if (a[i] == 1)
-        //     }
+        function solution(a, b) {
+          let answer = "";
+          for (let i = 0; i < a.length; i++) {
+            if (a[i] === b[i]) {
+              answer += "D";
+            } else if (a[i] === 1 && b[i] === 3) {
+              answer += "A";
+            } else if (a[i] === 2 && b[i] === 1) {
+              answer += "A";
+            } else if (a[i] === 3 && b[i] === 2) {
+              answer += "A";
+            } else {
+              answer += "B";
+            }
+          }
 
-        //     return answer;
-        // }
+          return answer;
+        }
 
         let a = [2, 3, 3, 1, 3];
         let b = [1, 1, 2, 2, 3];
-        console.log(solution(a, b));
+        console.log("3번문제", solution(a, b));
       }
       {
-      }
-      {
-        //6번 격자판 최대합
         function solution(arr) {
-          let answer = [],
-            columnSum = [],
-            crossSum = [],
-            crossSum2 = [],
-            sum = 0,
-            max = 0;
+          let answer = 0,
+            cnt = 0;
 
           for (let i = 0; i < arr.length; i++) {
-            // console.log(arr[i]);
-            for (let j = 0; j < arr.length; j++) {
-              sum = arr[i].reduce((a, b) => a + b); //가로
-              columnSum = arr.map((a) => a[j]).reduce((a, b) => a + b);
-              crossSum = arr.map((el, i) => el[i]).reduce((a, b) => a + b);
-              crossSum2 = arr
-                .map((el, i) => el[arr.length - i])
-                .reduce((a, b) => a + b);
-
-              if (max < sum) {
-                max = sum;
-              }
-              if (max < columnSum) {
-                max = columnSum;
-              }
-              if (max < crossSum) {
-                max = crossSum;
-              }
-              if (max < crossSum2) {
-                max = crossSum2;
-              }
+            if (arr[i] === 1) {
+              cnt++;
+              answer += cnt;
+              // console.log(cnt, answer);
+            } else {
+              cnt = 0;
             }
           }
-          return max;
+          return answer;
         }
 
-        let arr = [
-          [10, 13, 10, 12, 15],
-          [12, 39, 30, 23, 11],
-          [11, 25, 50, 53, 15],
-          [19, 27, 29, 37, 27],
-          [19, 13, 30, 13, 19],
-        ];
-        console.log(solution(arr));
+        let arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+        console.log("4번문제", solution(arr));
       }
       {
         function solution(arr) {
-          let max = 0;
+          let n = arr.length;
+          let answer = new Array(n);
+          answer.fill(1);
 
-          for (let i = 0; i < arr.length; i++) {
-            let sum1 = 0;
-            for (let j = 0; j < arr.length; j++) {
-              sum1 += arr[i][j];
+          for (let i = 0; i < answer.length; i++) {
+            for (let j = 0; j < answer.length; j++) {
+              if (arr[i] < arr[j]) {
+                answer[i]++;
+              }
             }
-            max = sum1;
           }
-          return max;
+
+          return answer;
+        }
+
+        let arr = [87, 89, 92, 100, 76];
+        console.log("5번문제", solution(arr));
+      }
+      {
+        function solution(arr) {
+          let answer = 0;
+          let newArr = [];
+          let max;
+
+          for (let i = 0; i < 5; i++) {
+            sum = arr[i].reduce((acc, cur) => {
+              return acc + cur;
+            });
+            newArr.push(sum);
+          }
+          max = Math.max(...newArr);
+          console.log(newArr, max);
+
+          return answer;
         }
 
         let arr = [
